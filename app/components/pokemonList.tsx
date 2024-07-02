@@ -80,19 +80,21 @@ export const PokemonList = ({ pokemons }: PokemonListType) => {
 
   return (
     <div className="flex flex-col justify-center p-24">
-      <div className="flex justify-around">
+      <div className="flex justify-end items-center ">
         <SearchBar
           handleOnChange={handleSearchChange}
           value={query}
           placeholder="Entrer un nom"
         />
-        <Select
-          value={apiType}
-          onChange={handleSelectChange}
-          options={pokemonTypes}
-        />
+        <div className="w-40 ml-5">
+          <Select
+            value={apiType}
+            onChange={handleSelectChange}
+            options={pokemonTypes}
+          />
+        </div>
       </div>
-      <div className="pokemons-container">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7">
         {totalPokemonList.map((pokemon) => {
           const footer = (
             <button className="button">
@@ -109,21 +111,21 @@ export const PokemonList = ({ pokemons }: PokemonListType) => {
       </div>
       <div className="flex justify-between">
         <button
-          className="pagination-button"
+          className="pagination-button  my-5"
           onClick={prevPage}
           disabled={currentPage === 1}
         >
-          Page précédente
+          {"<-"}
         </button>
-        <span>
+        <span className="my-10">
           Page {currentPage} de {totalPages}
         </span>
         <button
-          className="pagination-button"
+          className="pagination-button my-5"
           onClick={nextPage}
           disabled={currentPage === totalPages}
         >
-          Page suivante
+          {"->"}
         </button>
       </div>
     </div>
