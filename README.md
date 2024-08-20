@@ -1,1 +1,1 @@
-# POC pokedex
+# POC pokedex NextJs/ReactJS
